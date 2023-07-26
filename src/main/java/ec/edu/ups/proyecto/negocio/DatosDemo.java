@@ -33,6 +33,7 @@ public class DatosDemo {
 		
 		v.setPlaca("ABD-20");
 		v.setModelo("Fortuner");
+		v.setCliente(c);
 		
 		daoVehiculo.insert(v);
 	}
