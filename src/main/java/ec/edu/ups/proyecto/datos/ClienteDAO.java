@@ -1,12 +1,6 @@
 package ec.edu.ups.proyecto.datos;
 
-<<<<<<< Updated upstream
 import java.util.List;
-=======
-public class ClienteDAO {
-	
-	
->>>>>>> Stashed changes
 
 import ec.edu.ups.proyecto.modelo.Cliente;
 import jakarta.ejb.Stateless;
