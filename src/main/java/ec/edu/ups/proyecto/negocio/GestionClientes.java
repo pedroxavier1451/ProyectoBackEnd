@@ -48,4 +48,5 @@ public class GestionClientes {
 		daoCliente.delete(cedula);
 	}
 	
+	
 }
