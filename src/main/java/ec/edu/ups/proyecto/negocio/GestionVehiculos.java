@@ -10,14 +10,16 @@ import jakarta.inject.Inject;
 @Stateless
 
 public class GestionVehiculos {
-	/*
+	
+	String cedulaCliente="";
+	
 	@Inject
 	private VehiculoDAO daoVehiculo;
 	
-	public void guardarVehiculo(Vehiculo vehiculo) {
-		if(daoVehiculo.read(vehiculo.getIdVehiculo()==null)) {
+	public void guardarVehiculo(Vehiculo vehiculo) throws Exception {
+		if(daoVehiculo.read(vehiculo.getPlaca())==null) {
 			try {
-				daoVehiculo.insert(vehiculo)
+				daoVehiculo.insert(vehiculo);
 			}
 			catch (Exception e) {
 				throw new Exception("Error al insertar: "+ e.getMessage());
@@ -25,7 +27,7 @@ public class GestionVehiculos {
 		} 
 		else {
 			try {
-				daoVehiculo.update(vehiculo)
+				daoVehiculo.update(vehiculo);
 			}catch (Exception e) {
 				throw new Exception("Error al actualizar: "+ e.getMessage());
 			}
@@ -40,5 +42,4 @@ public class GestionVehiculos {
 	{
 		daoVehiculo.delete(Placa);
 	}
-*/
 }

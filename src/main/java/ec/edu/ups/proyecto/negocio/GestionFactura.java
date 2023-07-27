@@ -3,12 +3,13 @@ package ec.edu.ups.proyecto.negocio;
 import java.util.List;
 
 import ec.edu.ups.proyecto.datos.FacturaDAO;
+import ec.edu.ups.proyecto.modelo.Factura;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 @Stateless
 
-public class Factura {
+public class GestionFactura {
 
 	@Inject
 	private FacturaDAO daoFactura;
@@ -18,8 +19,8 @@ public class Factura {
 	}
 	
 	
-	public void guardarFactura(Factura factura) {
-		if(!this.isCodigoValido(factura.getIdCliente()))
+	public void guardarFactura(Factura factura) throws Exception {
+		if(!this.isCodigoValido(factura.getIdFactura()))
 			throw new Exception("Codigo Incorrecto");
 		
 		if(daoFactura.read(factura.getIdFactura())==null) {

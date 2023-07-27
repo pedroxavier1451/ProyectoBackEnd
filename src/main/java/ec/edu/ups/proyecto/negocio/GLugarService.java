@@ -1,9 +1,11 @@
-package ec.edu.ups.proyecto.servicios;
+package ec.edu.ups.proyecto.negocio;
 
 import java.util.List;
 
-import ec.edu.ups.proyecto.modelo.Vehiculo;
-import ec.edu.ups.proyecto.negocio.GestionVehiculos;
+import ec.edu.ups.proyecto.datos.LugarDAO;
+import ec.edu.ups.proyecto.modelo.Lugar;
+import ec.edu.ups.proyecto.servicios.Error;
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -14,21 +16,20 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
-@Path("Vehiculo")
+@Path("Lugar")
 
-public class GVehiculoService {
+public class GLugarService {
 	
-	@Inject GestionVehiculos gestionVehiculo;
-	
-	//guardar vehiculos
+	@Inject GestionLugar gestionLugar;
 	
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
-	public Response saveVehiculo(Vehiculo v) {
+	public Response saveLugar(Lugar lugar) {
 		try {
-			gestionVehiculo.guardarVehiculo(v);
-			return Response.status(Response.Status.OK).entity(v).build();
+			
+		gestionLugar.guardarLugar(lugar);
+		return Response.status(Response.Status.OK).entity(lugar).build();
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -39,24 +40,20 @@ public class GVehiculoService {
 		}
 	}
 	
-	//listar los vehiculos
-	
 	@GET
-	@Path("vehiculosLista")
+	@Path("lugarLista")
 	@Produces("application/json")
-	public Response getVehiculo() {
-		List<Vehiculo> lista=gestionVehiculo.getVehiculos();
+	public Response getLugar() {
+		List<Lugar> lista=gestionLugar.getLugar();
 		return Response.status(Response.Status.OK).entity(lista).build();
 	}
 	
 	@DELETE
-	@Path("delete/{placa}")
-	public Response deleteVehiculo(@PathParam("placa") String placa)
-	{
+	@Path("delete/{id}")
+	public Response deleteLugar(@PathParam("id") int id) {
 		try {
-			gestionVehiculo.delete(placa);
+			gestionLugar.delete(id);
 			return Response.status(Response.Status.OK).build();
-			
 		}catch (Exception e) {
 			var error = new Error();
 			error.setCodigo(98);
@@ -64,5 +61,6 @@ public class GVehiculoService {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}
 	}
-
 }
+
+

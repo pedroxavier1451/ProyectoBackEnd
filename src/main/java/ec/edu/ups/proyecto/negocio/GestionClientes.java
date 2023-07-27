@@ -10,30 +10,27 @@ import jakarta.inject.Inject;
 @Stateless
 
 public class GestionClientes {
-	/*
+	
 	@Inject 
 	private ClienteDAO daoCliente;
 	
 	
-	public void guardarClientes(Cliente cliente)
+	public void guardarClientes(Cliente cliente) throws Exception
 	{
-		if(!this.isCodigoValido(cliente.getCedula())){
-			if(daoCliente.read(cliente.getCedula()==null))
-			{
-
-				try {
-					daoCliente.insert(cliente);
-				} catch (Exception e) {
-					throw  new Exception("Error al insertar"+e.getMessage()):
-				}
+		
+		if(daoCliente.read(cliente.getCedula())==null)
+		{
+			try {
+				daoCliente.insert(cliente);
+			}catch (Exception e) {
+				throw new Exception("Error al insertar: "+ e.getMessage());
 			}
-			else {
-				try {
-					daoCliente.update(cliente);
-				}catch (Exception e) {
-					throw new Exception("Error al actualizar: "+ e.getMessage());
-				}
-			
+		}
+		else {
+			try {
+				daoCliente.update(cliente);
+			}catch (Exception e) {
+				throw new Exception("Error al insertar: "+ e.getMessage());
 			}
 		}
 	}
@@ -50,5 +47,5 @@ public class GestionClientes {
 	{
 		daoCliente.delete(cedula);
 	}
-	*/
+	
 }

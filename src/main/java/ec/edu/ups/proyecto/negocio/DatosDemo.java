@@ -39,47 +39,47 @@ public class DatosDemo {
 	
 	@PostConstruct
 	public void init() {
-		Cliente c = new Cliente();
-		
-		c.setCedula("0106721962");
-		c.setNombre("Pedro");
-		c.setApellido("Orellana");
-		
-		daoCliente.insert(c);
-		
-		Vehiculo v = new Vehiculo();
-		
-		v.setPlaca("ABD-20");
-		v.setModelo("Fortuner");
-		v.setCliente(c);
-		
-		daoVehiculo.insert(v);
-		
-		Lugar l = new Lugar();
-		
-		l.setNroLugar(3);
-		l.setEstado(true);
-		
-		daoLugar.insert(l);
-		
-		Ticket t = new Ticket();
-		
-		t.setHoraIngreso(new Date());
-		t.setHoraSalida(new Date());
-		t.setPrecio(23.2);
-		t.setLugar(l);
-		t.setVehiculo(v);
-		
-		daoTicket.insert(t);
-		
-		Factura f = new Factura();
-		
-		f.setCodigo("0136gs52");
-		f.setTotal(22.1);
-		f.setFecha(new Date());
-		f.setTicket(t);
-		
-		daoFactura.insert(f);
+//		Cliente c = new Cliente();
+//		
+//		c.setCedula("0106721962");
+//		c.setNombre("Pedro");
+//		c.setApellido("Orellana");
+//		
+//		daoCliente.insert(c);
+//		
+//		Vehiculo v = new Vehiculo();
+//		
+//		v.setPlaca("ABD-20");
+//		v.setModelo("Fortuner");
+//		v.setCliente(c);
+//		
+//		daoVehiculo.insert(v);
+//		
+//		Lugar l = new Lugar();
+//		
+//		l.setNroLugar(3);
+//		l.setEstado(true);
+//		
+//		daoLugar.insert(l);
+//		
+//		Ticket t = new Ticket();
+//		
+//		t.setHoraIngreso(new Date());
+//		t.setHoraSalida(new Date());
+//		t.setPrecio(23.2);
+//		t.setLugar(l);
+//		t.setVehiculo(v);
+//		
+//		daoTicket.insert(t);
+//		
+//		Factura f = new Factura();
+//		
+//		f.setCodigo("0136gs52");
+//		f.setTotal(22.1);
+//		f.setFecha(new Date());
+//		f.setTicket(t);
+//		
+//		daoFactura.insert(f);
 		
 	}
 }
