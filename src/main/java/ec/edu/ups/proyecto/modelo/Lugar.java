@@ -1,9 +1,12 @@
 package ec.edu.ups.proyecto.modelo;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 
@@ -11,21 +14,28 @@ public class Lugar {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="lu_id")
-	private int id_Lugar;
+	@Column(name="idLugar")
+	private int idLugar;
 	
-	@Column(name="lu_NroLugar",nullable=false)
+	@Column(nullable=false)
 	private int nroLugar;
 	
-	@Column(name="lu_estado", nullable=false)
+	@Column(nullable=false)
 	private boolean estado;
-
-	public int getId_Lugar() {
-		return id_Lugar;
+	
+	@OneToMany(mappedBy="lugar")
+	private Set<Ticket> tickets;
+	
+	public Lugar() {
+		
 	}
 
-	public void setId_Lugar(int id_Lugar) {
-		this.id_Lugar = id_Lugar;
+	public int getIdLugar() {
+		return idLugar;
+	}
+
+	public void setIdLugar(int idLugar) {
+		this.idLugar = idLugar;
 	}
 
 	public int getNroLugar() {
@@ -46,7 +56,7 @@ public class Lugar {
 
 	@Override
 	public String toString() {
-		return "Lugar [id_Lugar=" + id_Lugar + ", nroLugar=" + nroLugar + ", estado=" + estado + "]";
+		return "Lugar [idLugar=" + idLugar + ", nroLugar=" + nroLugar + ", estado=" + estado + "]";
 	}
 	
 	

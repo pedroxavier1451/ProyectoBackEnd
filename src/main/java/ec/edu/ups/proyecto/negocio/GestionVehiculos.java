@@ -10,7 +10,7 @@ import jakarta.inject.Inject;
 @Stateless
 
 public class GestionVehiculos {
-	
+	/*
 	@Inject
 	private VehiculoDAO daoVehiculo;
 	
@@ -40,5 +40,5 @@ public class GestionVehiculos {
 	{
 		daoVehiculo.delete(id);
 	}
-
+*/
 }

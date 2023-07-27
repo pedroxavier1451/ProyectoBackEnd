@@ -8,7 +8,7 @@ import jakarta.inject.Inject;
 @Stateless
 
 public class GestionClientes {
-	
+	/*
 	@Inject 
 	private ClienteDAO daoCliente;
 	
@@ -48,4 +48,5 @@ public class GestionClientes {
 	{
 		daoCliente.delete()id;
 	}
+	*/
 }

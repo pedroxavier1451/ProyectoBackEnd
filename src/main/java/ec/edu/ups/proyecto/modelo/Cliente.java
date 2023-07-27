@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 public class Cliente {
 	
 	@Id
-	@Column(nullable = false)
+	@Column(name="cedula")
     private String cedula;
 	
 	@Column(nullable = false)

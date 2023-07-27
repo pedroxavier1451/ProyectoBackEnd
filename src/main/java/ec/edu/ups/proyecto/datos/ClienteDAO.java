@@ -26,13 +26,13 @@ public class ClienteDAO {
 		em.merge(cliente);
 	}
 
-	public Cliente read(int idCliente) {
-		Cliente c = em.find(Cliente.class, idCliente);
+	public Cliente read(String cedula) {
+		Cliente c = em.find(Cliente.class, cedula);
 		return c;
 	}
 
-	public void delete(int idCliente) {
-		Cliente c = em.find(Cliente.class, idCliente);
+	public void delete(String cedula) {
+		Cliente c = em.find(Cliente.class, cedula);
 		em.remove(c);
 	}
 	

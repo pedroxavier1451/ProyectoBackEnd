@@ -6,6 +6,8 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 
@@ -13,17 +15,25 @@ public class Factura {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="fac_Id")
+	@Column(name="idFactura")
 	private int idFactura;
 	
-	@Column(name="fac_Codigo", nullable=false)
-	private int codigo;
+	@Column(nullable=false)
+	private String codigo;
 	
-	@Column(name="fac_Fecha", nullable=false)
+	@Column(nullable=false)
 	private Date fecha;
 	
-	@Column(name="fac_Total",nullable=false)
+	@Column(nullable=false)
 	private double total;
+
+	@ManyToOne
+	@JoinColumn(name="idTicket")
+	private Ticket ticket;
+	
+	public Factura() {
+		
+	}
 
 	public int getIdFactura() {
 		return idFactura;
@@ -33,11 +43,11 @@ public class Factura {
 		this.idFactura = idFactura;
 	}
 
-	public int getCodigo() {
+	public String getCodigo() {
 		return codigo;
 	}
 
-	public void setCodigo(int codigo) {
+	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
 
@@ -57,10 +67,18 @@ public class Factura {
 		this.total = total;
 	}
 
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 	@Override
 	public String toString() {
-		return "Factura [idFactura=" + idFactura + ", codigo=" + codigo + ", fecha=" + fecha + ", total=" + total + "]";
+		return "Factura [idFactura=" + idFactura + ", codigo=" + codigo + ", fecha=" + fecha + ", total=" + total
+				+ ", ticket=" + ticket + "]";
 	}
-	
 	
 }

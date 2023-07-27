@@ -22,13 +22,13 @@ public class VehiculoDAO {
 		em.merge(vehiculo);
 	}
 
-	public Vehiculo read(int idVehiculo) {
-		Vehiculo v = em.find(Vehiculo.class, idVehiculo);
+	public Vehiculo read(String placa) {
+		Vehiculo v = em.find(Vehiculo.class, placa);
 		return v;
 	}
 
-	public void delete(int idVehiculo) {
-		Vehiculo v = em.find(Vehiculo.class, idVehiculo);
+	public void delete(String placa) {
+		Vehiculo v = em.find(Vehiculo.class, placa);
 		em.remove(v);
 	}
 	

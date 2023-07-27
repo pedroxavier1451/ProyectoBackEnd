@@ -1,35 +1,54 @@
 package ec.edu.ups.proyecto.modelo;
 
-import java.sql.Date;
+import java.util.Date;
+import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Ticket {
 	
 	@Id
 	@GeneratedValue
-	@Column(name="tic_Id")
-	private int Id;
+	@Column(name="idTicket")
+	private int idTicket;
 	
-	@Column(name="tic_HoraIngreso",nullable=false)
+	@Column(nullable=false)
 	private Date HoraIngreso;
 	
-	@Column(name="tic_HoraSalida")
+	@Column(nullable=false)
 	private Date HoraSalida;
 	
-	@Column(name="tic_Precio",nullable=false)
+	@Column(nullable=false)
 	private Double Precio;
+	
+	@ManyToOne
+	@JoinColumn(name="placa")
+	private Vehiculo vehiculo;
 
-	public int getId() {
-		return Id;
+	@ManyToOne
+	@JoinColumn(name="idLugar")
+	private Lugar lugar;
+	
+	@OneToMany(mappedBy="ticket")
+	private Set<Factura> facturas;
+	
+	public Ticket() {
+		
 	}
 
-	public void setId(int id) {
-		Id = id;
+	public int getIdTicket() {
+		return idTicket;
+	}
+
+	public void setIdTicket(int idTicket) {
+		this.idTicket = idTicket;
 	}
 
 	public Date getHoraIngreso() {
@@ -56,12 +75,27 @@ public class Ticket {
 		Precio = precio;
 	}
 
+
+	public Vehiculo getVehiculo() {
+		return vehiculo;
+	}
+
+	public void setVehiculo(Vehiculo vehiculo) {
+		this.vehiculo = vehiculo;
+	}
+
+	public Lugar getLugar() {
+		return lugar;
+	}
+
+	public void setLugar(Lugar lugar) {
+		this.lugar = lugar;
+	}
+
 	@Override
 	public String toString() {
-		return "Ticket [Id=" + Id + ", HoraIngreso=" + HoraIngreso + ", HoraSalida=" + HoraSalida + ", Precio=" + Precio
-				+ "]";
+		return "Ticket [idTicket=" + idTicket + ", HoraIngreso=" + HoraIngreso + ", HoraSalida=" + HoraSalida
+				+ ", Precio=" + Precio + ", vehiculo=" + vehiculo + ", lugar=" + lugar + "]";
 	}
-	
-	
 
 }

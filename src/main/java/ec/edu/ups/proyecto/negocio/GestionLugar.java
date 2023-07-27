@@ -2,7 +2,6 @@ package ec.edu.ups.proyecto.negocio;
 
 import java.util.List;
 
-import ec.edu.ups.ppw.demo.modelo.Cliente;
 import ec.edu.ups.proyecto.modelo.Lugar;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -10,7 +9,7 @@ import jakarta.inject.Inject;
 @Stateless
 
 public class GestionLugar {
-	
+	/*
 	@Inject 
 	private Lugar daoLugar;
 	
@@ -44,5 +43,5 @@ public class GestionLugar {
 	public void delete(int id) {
 		daoLugar.delete(id);
 	}
-
+*/
 }
