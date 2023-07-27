@@ -36,9 +36,9 @@ public class GestionVehiculos {
 		return daoVehiculo.getAll();
 	}
 	
-	public void delete(int id)
+	public void delete(String Placa)
 	{
-		daoVehiculo.delete(id);
+		daoVehiculo.delete(Placa);
 	}
 */
 }

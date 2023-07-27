@@ -1,5 +1,7 @@
 package ec.edu.ups.proyecto.negocio;
 
+import java.util.List;
+
 import ec.edu.ups.proyecto.datos.ClienteDAO;
 import ec.edu.ups.proyecto.modelo.Cliente;
 import jakarta.ejb.Stateless;
@@ -44,9 +46,9 @@ public class GestionClientes {
 		return daoCliente.getAll();
 	}
 	
-	public void delete(int id)
+	public void delete(String cedula)
 	{
-		daoCliente.delete()id;
+		daoCliente.delete(cedula);
 	}
 	*/
 }
