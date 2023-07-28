@@ -38,4 +38,8 @@ public class GestionTicket {
 	public void delete(int idTicket) {
 		daoTicket.delete(idTicket);
 	}
+	
+	public Ticket buscarTicket(int id) {
+		return daoTicket.getTicket(id);
+	}
 }

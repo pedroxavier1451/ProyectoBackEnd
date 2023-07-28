@@ -2,12 +2,10 @@ package ec.edu.ups.proyecto.servicios;
 
 import java.util.List;
 
-import ec.edu.ups.proyecto.modelo.Lugar;
+import ec.edu.ups.proyecto.modelo.Factura;
 import ec.edu.ups.proyecto.modelo.Ticket;
-import ec.edu.ups.proyecto.modelo.Vehiculo;
-import ec.edu.ups.proyecto.negocio.GestionLugar;
+import ec.edu.ups.proyecto.negocio.GestionFactura;
 import ec.edu.ups.proyecto.negocio.GestionTicket;
-import ec.edu.ups.proyecto.negocio.GestionVehiculos;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.Consumes;
 import jakarta.ws.rs.DELETE;
@@ -18,27 +16,24 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
-@Path("Ticket")
+@Path("Factura")
 
-public class GTicket_Service {
+public class GFactura_Service {
 	
-	static Vehiculo v;
-	static Lugar l;
-	
+	@Inject GestionFactura gestionFactura;
 	@Inject GestionTicket gestionTicket;
-	@Inject GestionVehiculos gestionVehiculo;
-	@Inject GestionLugar gestionLugar;
+	
+	static Ticket t;
 	
 	
-	//Buscar vehiculo-lugar
+	//Buscar Ticket
 	
 	@GET
-	@Path("BuscarVehiculo-Lugar/{placa}/{id}")
+	@Path("buscarTicket/{id}")
 	@Produces("application/json")
-	public Response buscarVehiculo(@PathParam("placa") String placa, @PathParam("id") int id) {
+	public Response buscarVehiculo(@PathParam("id") int id) {
 		try {
-			v= gestionVehiculo.buscarVehiculo(placa);
-			l=gestionLugar.buscarLugar(id);
+			t= gestionTicket.buscarTicket(id);
 			return Response.status(Response.Status.OK).build();
 		}catch (Exception e) {
 			var error = new Error();
@@ -48,23 +43,21 @@ public class GTicket_Service {
 		}
 		
 	}
-
 	
-	////////////////////////////////////// Ticket/////////////////////////
 	
+	//////////////////////////// Factura ./////////////////////////////
 	@POST
 	@Produces("application/json")
 	@Consumes("application/json")
-	@Path("AgregarTicket")
-	public Response saveTicket(Ticket ticket) {
+	@Path("AgregarFactura")
+	public Response saveFactura(Factura factura) {
 		try {
-			ticket.setVehiculo(v);
-			ticket.setLugar(l);
-			System.out.print("----------------------"+v+"-----------"+l+"-------------------");
-			gestionTicket.guardarTicket(ticket);
-			v=null;
-			l=null;
-			return Response.status(Response.Status.OK).entity(ticket).build();
+			factura.setTicket(t);
+			factura.setCodigo(gestionFactura.generarCodigoFactura());
+			System.out.print("--------------"+t+"-------------");
+			gestionFactura.guardarFactura(factura);
+			t=null;
+			return Response.status(Response.Status.OK).entity(factura).build();
 		}catch (Exception e) {
 			e.printStackTrace();
 			Error error = new Error();
@@ -73,20 +66,19 @@ public class GTicket_Service {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}
 	}
-	
 	@GET
-	@Path("ticketLista")
+	@Path("facturaLista")
 	@Produces("application/json")
-	public Response getCliente() {
-		List<Ticket> lista=gestionTicket.getTicket();
+	public Response getFactura() {
+		List<Factura> lista=gestionFactura.getFactura();
 		return Response.status(Response.Status.OK).entity(lista).build();
 	}
 	
 	@DELETE
-	@Path("deleteTicket/{id}")
-	public Response deleteCliente(@PathParam("id") int id) {
+	@Path("deleteFactura/{id}")
+	public Response deleteFactura(@PathParam("id") int id) {
 		try {
-			gestionTicket.delete(id);
+			gestionFactura.delete(id);
 			return Response.status(Response.Status.OK).build();
 		}
 		catch (Exception e) {
@@ -96,5 +88,4 @@ public class GTicket_Service {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}
 	}
-
 }

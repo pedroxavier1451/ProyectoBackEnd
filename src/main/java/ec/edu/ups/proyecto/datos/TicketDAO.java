@@ -41,5 +41,10 @@ public class TicketDAO {
         TypedQuery<Ticket> query = em.createQuery(jpql, Ticket.class);
         return query.getResultList();
     }
+	
+	public Ticket getTicket(int id) {
+		Ticket t = em.find(Ticket.class, id);
+		return t;
+	}
     
 }
