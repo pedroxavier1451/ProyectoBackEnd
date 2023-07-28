@@ -17,6 +17,7 @@ public class GestionFactura {
 
 	@Inject
 	private FacturaDAO daoFactura;
+	
 
 	 private static final int NUM_DIGITS = 6;
 	
@@ -52,15 +53,9 @@ public class GestionFactura {
 	public void delete(int id) {
 		daoFactura.delete(id);
 	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	// Generar Id de Fcatura
 	
 	public static String generarCodigoFactura() {
         String codigoFactura = generarCodigoAleatorio(NUM_DIGITS) + obtenerFechaActual();
