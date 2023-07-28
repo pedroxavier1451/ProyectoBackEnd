@@ -41,4 +41,9 @@ public class LugarDAO {
         TypedQuery<Lugar> query = em.createQuery(jpql, Lugar.class);
         return query.getResultList();
     }
+	
+	public Lugar getLugar(int id) {
+		Lugar l = em.find(Lugar.class, id);
+		return l;
+	}
 }

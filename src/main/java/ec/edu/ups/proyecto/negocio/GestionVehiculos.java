@@ -42,4 +42,9 @@ public class GestionVehiculos {
 	{
 		daoVehiculo.delete(Placa);
 	}
+	
+	public Vehiculo buscarVehiculo(String placa) {
+		return daoVehiculo.getVehiculo(placa);
+		
+	}
 }

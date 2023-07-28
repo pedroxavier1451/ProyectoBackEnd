@@ -96,6 +96,7 @@ public class GVehiculo_ClienteService {
 			v.setCliente(c);
 			System.out.print("----------------"+v+"=------------------------=");
 			gestionVehiculo.guardarVehiculo(v);
+			c=null;
 			return Response.status(Response.Status.OK).entity(v).build();
 		}
 		catch (Exception e) {
@@ -132,5 +133,7 @@ public class GVehiculo_ClienteService {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}
 	}
-
+	 
+	
+	////////////////////////////// Ticket ////////////////////////////////////////
 }

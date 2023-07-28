@@ -37,4 +37,9 @@ public class VehiculoDAO {
 		Query q = em.createQuery(jpql);
 		return q.getResultList();
 	}
+	
+	public Vehiculo getVehiculo(String placa) {
+		Vehiculo v = em.find(Vehiculo.class, placa);
+		return v;
+	}
 }

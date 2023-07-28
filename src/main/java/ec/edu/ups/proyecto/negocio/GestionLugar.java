@@ -45,5 +45,10 @@ public class GestionLugar {
 	public void delete(int id) {
 		daoLugar.delete(id);
 	}
+	
+	public Lugar buscarLugar(int id) {
+		return daoLugar.getLugar(id);
+		
+	}
 
 }
