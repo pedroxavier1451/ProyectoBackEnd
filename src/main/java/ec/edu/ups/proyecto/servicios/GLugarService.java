@@ -14,6 +14,8 @@ import jakarta.ws.rs.PathParam;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.Response;
 
+@Path("Lugar")
+
 public class GLugarService {
 
 	@Inject GestionLugar gestionLugar;

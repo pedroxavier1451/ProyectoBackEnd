@@ -42,4 +42,18 @@ public class GestionTicket {
 	public Ticket buscarTicket(int id) {
 		return daoTicket.getTicket(id);
 	}
+	
+	//calcular Precio
+	
+	public void calcularTotal(Ticket ticket) {
+		int hora1=ticket.getHoraIngreso().getHours();
+		int min1=ticket.getHoraIngreso().getMinutes();
+		
+		int hora2=ticket.getHoraSalida().getHours();
+		int min2=ticket.getHoraSalida().getMinutes();
+		
+		
+		ticket.getHoraSalida();
+		ticket.getPrecio();
+	}
 }
