@@ -1,5 +1,6 @@
 package ec.edu.ups.proyecto.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ec.edu.ups.proyecto.datos.LugarDAO;
@@ -8,7 +9,6 @@ import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 @Stateless
-
 public class GestionLugar {
 	
 	@Inject 
@@ -19,11 +19,11 @@ public class GestionLugar {
 	}
 	
 	public void guardarLugar(Lugar lugar) throws Exception {
-		if(!this.isCodigoValido(lugar.getIdLugar()))
+		if(!this.isCodigoValido(lugar.getNroLugar()))
 			throw new Exception("Codigo Incorrecto");
 		
 		
-		if(daoLugar.read(lugar.getIdLugar()) == null) {
+		if(daoLugar.read(lugar.getNroLugar()) == null) {
 			try {
 				daoLugar.insert(lugar);
 			}catch(Exception e){
@@ -48,7 +48,16 @@ public class GestionLugar {
 	
 	public Lugar buscarLugar(int id) {
 		return daoLugar.getLugar(id);
-		
+	}
+	
+	public List<Integer> verificar(){
+		 List<Integer> lista = new ArrayList<>();
+		 for (int i = 1; i < 26; i++) {
+	            if(daoLugar.getLugar(i).isEstado() == false) {
+	            	lista.add(i);
+	            }
+        }
+		return lista;
 	}
 
 }

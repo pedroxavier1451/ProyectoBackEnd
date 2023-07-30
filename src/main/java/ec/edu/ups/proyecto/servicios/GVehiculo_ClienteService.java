@@ -80,6 +80,7 @@ public class GVehiculo_ClienteService {
 				return Response.status(Response.Status.OK).entity(error).build();
 			}
 		}
+		
 
 	
 	

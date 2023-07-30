@@ -3,6 +3,7 @@ package ec.edu.ups.proyecto.datos;
 import java.util.List;
 
 import ec.edu.ups.proyecto.modelo.Cliente;
+import ec.edu.ups.proyecto.modelo.Vehiculo;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -41,4 +42,9 @@ public class ClienteDAO {
         TypedQuery<Cliente> query = em.createQuery(jpql, Cliente.class);
         return query.getResultList();
     }
+	
+	public Cliente getCliente(String cedula) {
+		Cliente c = em.find(Cliente.class, cedula);
+		return c;
+	}
 }

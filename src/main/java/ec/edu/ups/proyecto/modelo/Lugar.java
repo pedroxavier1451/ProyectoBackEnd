@@ -13,10 +13,6 @@ import jakarta.persistence.OneToMany;
 public class Lugar {
 	
 	@Id
-	@GeneratedValue
-	@Column(name="idLugar")
-	private int idLugar;
-	
 	@Column(nullable=false)
 	private int nroLugar;
 	
@@ -30,13 +26,6 @@ public class Lugar {
 		
 	}
 
-	public int getIdLugar() {
-		return idLugar;
-	}
-
-	public void setIdLugar(int idLugar) {
-		this.idLugar = idLugar;
-	}
 
 	public int getNroLugar() {
 		return nroLugar;
@@ -56,7 +45,7 @@ public class Lugar {
 
 	@Override
 	public String toString() {
-		return "Lugar [idLugar=" + idLugar + ", nroLugar=" + nroLugar + ", estado=" + estado + "]";
+		return "Lugar [nroLugar=" + nroLugar + ", estado=" + estado + "]";
 	}
 	
 	

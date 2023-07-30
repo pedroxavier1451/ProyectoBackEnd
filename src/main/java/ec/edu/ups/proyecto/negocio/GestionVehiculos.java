@@ -2,7 +2,9 @@ package ec.edu.ups.proyecto.negocio;
 
 import java.util.List;
 
+import ec.edu.ups.proyecto.datos.ClienteDAO;
 import ec.edu.ups.proyecto.datos.VehiculoDAO;
+import ec.edu.ups.proyecto.modelo.Cliente;
 import ec.edu.ups.proyecto.modelo.Vehiculo;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -15,6 +17,9 @@ public class GestionVehiculos {
 	
 	@Inject
 	private VehiculoDAO daoVehiculo;
+
+	@Inject
+	private ClienteDAO daoCliente;
 	
 	public void guardarVehiculo(Vehiculo vehiculo) throws Exception {
 		if(daoVehiculo.read(vehiculo.getPlaca())==null) {
