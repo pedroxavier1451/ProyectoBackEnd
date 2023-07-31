@@ -17,9 +17,6 @@ public class Vehiculo {
 	@Column(name="placa")
     private String placa;
 	
-	@Column(nullable = true)
-    private String modelo;
-	
 	@ManyToOne
 	@JoinColumn(name="cedula")
 	private Cliente cliente;
@@ -39,14 +36,6 @@ public class Vehiculo {
 		this.placa = placa;
 	}
 
-	public String getModelo() {
-		return modelo;
-	}
-
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
-	}
-
 	public Cliente getCliente() {
 		return cliente;
 	}
@@ -57,7 +46,7 @@ public class Vehiculo {
 
 	@Override
 	public String toString() {
-		return "Vehiculo [placa=" + placa + ", modelo=" + modelo + ", cliente=" + cliente + "]";
+		return "Vehiculo [placa=" + placa + ", cliente=" + cliente + "]";
 	}
     
 }

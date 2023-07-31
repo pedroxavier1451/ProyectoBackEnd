@@ -33,7 +33,7 @@ public class Ticket {
 	private Vehiculo vehiculo;
 
 	@ManyToOne
-	@JoinColumn(name="idLugar")
+	@JoinColumn(name="nroLugar")
 	private Lugar lugar;
 	
 	@OneToMany(mappedBy="ticket")
