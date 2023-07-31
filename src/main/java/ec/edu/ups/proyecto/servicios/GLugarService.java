@@ -60,20 +60,6 @@ public class GLugarService {
 		}
 	}
 	
-	@GET
-	@Path("verificarLugar")
-	@Produces("application/json")
-	public Response verificar(Lugar lugar) {
-		List<Lugar> lista=gestionLugar.getLugar();
-		List<Integer> lista2;
-		for (int i = 0; i < lista.size(); i++) {
-			if(lugar.isEstado() == false) {
-				
-			}
-        }
-		
-		return Response.status(Response.Status.OK).entity(lista).build();
-	}
 	
 	@GET
 	@Path("verificar")
