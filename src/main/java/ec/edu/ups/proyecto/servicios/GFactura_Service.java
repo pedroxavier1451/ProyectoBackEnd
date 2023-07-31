@@ -76,7 +76,7 @@ public class GFactura_Service {
 	
 	@DELETE
 	@Path("deleteFactura/{id}")
-	public Response deleteFactura(@PathParam("id") int id) {
+	public Response deleteFactura(@PathParam("id") int id) {	
 		try {
 			gestionFactura.delete(id);
 			return Response.status(Response.Status.OK).build();
