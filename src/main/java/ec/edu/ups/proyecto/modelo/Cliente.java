@@ -28,6 +28,7 @@ public class Cliente {
     private String correo;
    
 	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	
 	@JoinColumn(name="placa")
 	private Vehiculo vehiculo;
 	
