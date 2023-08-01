@@ -94,7 +94,6 @@ public class GVehiculo_ClienteService {
 	@Path("AgregarVehiculo")
 	public Response saveVehiculo(Vehiculo v) {
 		try {
-			v.setCliente(c);
 			System.out.print("----------------"+v+"=------------------------=");
 			gestionVehiculo.guardarVehiculo(v);
 			c=null;

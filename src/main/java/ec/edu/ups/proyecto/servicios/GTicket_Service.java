@@ -48,6 +48,25 @@ public class GTicket_Service {
 		}
 		
 	}
+	
+//	buscar con cedula
+	
+	@GET
+	@Path("BuscarVehiculoCedula/{cedula}")
+	@Produces("application/json")
+	public Response buscarVehiculoCedula(@PathParam("cedula") String cedula) {
+		try {
+			
+			List<Vehiculo> lista=gestionVehiculo.getVehiculoCedula(cedula);
+			System.out.print("paso el servici");
+			return Response.status(Response.Status.OK).entity(lista).build();
+		}catch (Exception e) {
+			var error = new Error();
+			error.setCodigo(98);
+			error.setMensaje("Error al listar: "+e.getMessage());
+			return Response.status(Response.Status.OK).entity(error).build();
+		}
+	}
 
 	
 	////////////////////////////////////// Ticket/////////////////////////

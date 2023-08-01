@@ -4,6 +4,7 @@ import java.util.List;
 
 import ec.edu.ups.proyecto.datos.TicketDAO;
 import ec.edu.ups.proyecto.modelo.Ticket;
+import ec.edu.ups.proyecto.modelo.Vehiculo;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -42,6 +43,7 @@ public class GestionTicket {
 	public Ticket buscarTicket(int id) {
 		return daoTicket.getTicket(id);
 	}
+
 	
 	//calcular Precio
 	

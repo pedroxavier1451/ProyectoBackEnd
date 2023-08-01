@@ -1,13 +1,16 @@
 package ec.edu.ups.proyecto.modelo;
 
+
 import java.util.Set;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 
 
 @Entity
@@ -17,36 +20,44 @@ public class Vehiculo {
 	@Column(name="placa")
     private String placa;
 	
-	@ManyToOne
-	@JoinColumn(name="cedula")
-	private Cliente cliente;
+//	@OneToOne(mappedBy="vehiculo" ,fetch = FetchType.EAGER)
+//	private Cliente cliente;
 	
-	@OneToMany(mappedBy="vehiculo")
-	private Set<Ticket> tickets;
+	@OneToOne(mappedBy="vehiculo")
+	private Ticket ticket;
+
     
     public Vehiculo(){
         
     }
 
+
 	public String getPlaca() {
 		return placa;
 	}
+
 
 	public void setPlaca(String placa) {
 		this.placa = placa;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+
+
+	public Ticket getTicket() {
+		return ticket;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
 	}
+
 
 	@Override
 	public String toString() {
-		return "Vehiculo [placa=" + placa + ", cliente=" + cliente + "]";
+		return "Vehiculo [placa=" + placa +  ", ticket=" + ticket + "]";
 	}
+
+	
     
 }

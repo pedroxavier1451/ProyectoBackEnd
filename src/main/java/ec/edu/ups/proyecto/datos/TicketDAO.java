@@ -3,6 +3,7 @@ package ec.edu.ups.proyecto.datos;
 import java.util.List;
 
 import ec.edu.ups.proyecto.modelo.Ticket;
+import ec.edu.ups.proyecto.modelo.Vehiculo;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -46,5 +47,17 @@ public class TicketDAO {
 		Ticket t = em.find(Ticket.class, id);
 		return t;
 	}
+	
+//	public Vehiculo getVehiculoCedula(String c) {
+//		 String jpql = "SELECT vehiculo.placa, vehiculo.modelo, vehiculo.cedula FROM cliente INNER JOIN vehiculo ON cliente.cedula = vehiculo.cedula WHERE cliente.cedula = c";
+//	        TypedQuery<Vehiculo> query = em.createQuery(jpql, Vehiculo.class);
+//	        System.out.print("-------- valores de dao -----------"+query.getSingleResult());
+//	        return query.getSingleResult();
+//		
+//	}
+	
+
+
+
     
 }

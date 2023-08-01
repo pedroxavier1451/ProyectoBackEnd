@@ -2,6 +2,7 @@ package ec.edu.ups.proyecto.negocio;
 
 import java.util.List;
 
+
 import ec.edu.ups.proyecto.datos.ClienteDAO;
 import ec.edu.ups.proyecto.datos.VehiculoDAO;
 import ec.edu.ups.proyecto.modelo.Cliente;
@@ -51,5 +52,11 @@ public class GestionVehiculos {
 	public Vehiculo buscarVehiculo(String placa) {
 		return daoVehiculo.getVehiculo(placa);
 		
+	}
+	
+	
+	public List<Vehiculo> getVehiculoCedula(String cedula) {
+		System.out.print("pasa el gestion");
+		return daoVehiculo.getVehiculoCedula(cedula);
 	}
 }
