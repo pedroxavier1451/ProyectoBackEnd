@@ -20,9 +20,6 @@ public class Vehiculo {
 	@Column(name="placa")
     private String placa;
 	
-//	@OneToOne(mappedBy="vehiculo" ,fetch = FetchType.EAGER)
-//	private Cliente cliente;
-	
     
     public Vehiculo(){
         

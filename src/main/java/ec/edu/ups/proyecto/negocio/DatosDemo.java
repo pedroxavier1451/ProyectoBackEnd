@@ -56,6 +56,7 @@ public class DatosDemo {
 //		daoVehiculo.insert(v);
 //		
 //		
+		/*
 		Lugar l1 = new Lugar();
 		Lugar l2 = new Lugar();
 		Lugar l3 = new Lugar();
@@ -159,7 +160,7 @@ public class DatosDemo {
 		daoLugar.insert(l23);
 		daoLugar.insert(l24);
 		daoLugar.insert(l25);
-		
+		*/
 		
 //		
 //		Ticket t = new Ticket();
