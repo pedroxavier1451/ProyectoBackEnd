@@ -24,7 +24,7 @@ public class Ticket {
 	@Column(nullable=false)
 	private Date HoraIngreso;
 	
-	@Column(nullable=false)
+	@Column()
 	private Date HoraSalida;
 	
 	@Column(nullable=false)

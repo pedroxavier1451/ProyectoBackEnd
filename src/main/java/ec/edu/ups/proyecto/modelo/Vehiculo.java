@@ -23,9 +23,6 @@ public class Vehiculo {
 //	@OneToOne(mappedBy="vehiculo" ,fetch = FetchType.EAGER)
 //	private Cliente cliente;
 	
-	@OneToOne(mappedBy="vehiculo")
-	private Ticket ticket;
-
     
     public Vehiculo(){
         
@@ -42,20 +39,9 @@ public class Vehiculo {
 	}
 
 
-
-	public Ticket getTicket() {
-		return ticket;
-	}
-
-
-	public void setTicket(Ticket ticket) {
-		this.ticket = ticket;
-	}
-
-
 	@Override
 	public String toString() {
-		return "Vehiculo [placa=" + placa +  ", ticket=" + ticket + "]";
+		return "Vehiculo [placa=" + placa;
 	}
 
 	
