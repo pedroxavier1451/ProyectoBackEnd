@@ -27,7 +27,7 @@ public class Cliente {
 	@Column(nullable = true)
     private String correo;
    
-	@OneToOne(cascade=CascadeType.ALL,fetch = FetchType.EAGER)
+	@OneToOne(cascade= {CascadeType.REMOVE,CascadeType.PERSIST},fetch = FetchType.EAGER)
 	
 	@JoinColumn(name="placa")
 	private Vehiculo vehiculo;
