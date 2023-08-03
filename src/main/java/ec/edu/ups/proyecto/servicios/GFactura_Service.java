@@ -52,7 +52,6 @@ public class GFactura_Service {
 	@Path("AgregarFactura")
 	public Response saveFactura(Factura factura) {
 		try {
-			factura.setTicket(t);
 			factura.setCodigo(gestionFactura.generarCodigoFactura());
 			System.out.print("--------------"+t+"-------------");
 			gestionFactura.guardarFactura(factura);
@@ -66,6 +65,7 @@ public class GFactura_Service {
 			return Response.status(Response.Status.OK).entity(error).build();
 		}
 	}
+	
 	@GET
 	@Path("facturaLista")
 	@Produces("application/json")

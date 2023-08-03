@@ -38,8 +38,6 @@ public class Ticket {
 	@JoinColumn(name="nroLugar")
 	private Lugar lugar;
 	
-	@OneToMany(mappedBy="ticket")
-	private Set<Factura> facturas;
 	
 	public Ticket() {
 		
